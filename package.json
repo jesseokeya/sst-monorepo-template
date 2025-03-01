@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-unicorn": "^49.0.0",
-    "husky": "^8.0.0",
+    "husky": "^9.1.7",
     "inquirer": "^12.4.2",
     "lint-staged": "^15.4.3",
     "replace-in-file": "^8.3.0",
