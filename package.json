@@ -1,0 +1,95 @@
+{
+  "name": "sst-monorepo-template",
+  "version": "1.0.0",
+  "description": "AI-powered virtual assistant tailored for Canadian small businesses with intelligent call handling, appointment scheduling, and message taking capabilities",
+  "scripts": {
+    "build": "pnpm run --recursive build",
+    "compile": "npx tsc",
+    "lint": "pnpm run -r lint",
+    "test": "pnpm run -r test",
+    "aws:auth:dev": "pnpm run aws:login:sso && pnpm run aws:get-identity:sandbox",
+    "aws:auth:prod": "pnpm run aws:login:sso && pnpm run aws:get-identity:prod",
+    "aws:get-identity:sandbox": "aws sts get-caller-identity --profile=jesse-personal --no-cli-pager",
+    "aws:get-identity:prod": "aws sts get-caller-identity --profile=jesse-personal --no-cli-pager",
+    "client:build": "pnpm run --filter client build",
+    "client:dev": "pnpm run --filter client dev",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "sst:unlock:dev": "sst unlock --stage development",
+    "sst:deploy:dev": "pnpm sst:refresh:dev && sst deploy --stage development",
+    "sst:deploy:prod-verbose": "sst deploy --stage production --verbose --print-logs",
+    "sst:refresh:prod": "sst refresh --stage production",
+    "sst:refresh:dev": "sst refresh --stage development",
+    "sst:remove:dev": "sst remove --stage dev",
+    "sst": "sst",
+    "sst:dev": "sst dev",
+    "aws:portal": "open https://d-not-real.awsapps.com/start/#/?tab=accounts",
+    "typecheck": "NODE_OPTIONS=--max-old-space-size=15360 tsc --noEmit",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "replace": "node scripts/replace.js",
+    "aws:auth": "pnpm run aws:login:sso && pnpm run aws:get-identity",
+    "aws:get-identity": "aws sts get-caller-identity --profile=jesseokeya-personal --no-cli-pager",
+    "aws:login:sso": "aws sso login --sso-session=personal",
+    "lint:fix": "pnpm lint --fix",
+    "sst:deploy:prod": "sst deploy --stage production",
+    "sst:unlock:prod": "sst unlock --stage production"
+  },
+  "keywords": [
+    "monorepo",
+    "pnpm",
+    "ai",
+    "virtual-assistant",
+    "canadian",
+    "small-business",
+    "twilio",
+    "elevenlabs",
+    "openai"
+  ],
+  "author": "Jesse Okeya <jesseokeya@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "sst": "3.9.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesseokeya/sst-monorepo-template.git"
+  },
+  "devDependencies": {
+    "@sst-monorepo-template/utils": "workspace:*",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/aws-lambda": "8.10.147",
+    "@types/chalk": "^2.2.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.13.8",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "chalk": "^5.4.1",
+    "eslint": "^8.56.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-unicorn": "^49.0.0",
+    "husky": "^8.0.0",
+    "inquirer": "^12.4.2",
+    "lint-staged": "^15.4.3",
+    "replace-in-file": "^8.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.3"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "packageManager": "pnpm@9.14.2",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}

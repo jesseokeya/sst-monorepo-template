@@ -1,0 +1,29 @@
+{
+  "name": "@sst-monorepo-template/utils",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@middy/core": "^5.5.0",
+    "@middy/http-json-body-parser": "^5.5.0",
+    "middy": "^0.36.0",
+    "svix": "^1.61.0",
+    "uuid": "^10.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.16",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.31.0",
+    "typescript": "~5.7.3"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@sst-monorepo-template/server",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint src",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@sst-monorepo-template/utils": "workspace:*",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.31.0",
+    "typescript": "~5.7.3"
+  }
+}
